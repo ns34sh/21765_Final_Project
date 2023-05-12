@@ -1,0 +1,24 @@
+The program relies on APIs provided by the developers of Bentley STAADpro to extract data related to structural geometry, material properties and member forces needed for calculation of strain energy. Documentation (OpenSTAAD.chm by Bentley) containing description of the API commands is included in the repository.
+
+The API commands used are listed here:
+
+'Check if the FEM analysis results are available 
+objOpenSTAAD.Output.AreResultsAvailable()
+
+'Get the base unit used in the FEM analysis
+BaseUnit = objOpenSTAAD.GetBaseUnit
+
+'Get no. of beams selected by the user (in STAADpro software GUI)
+SelbeamsNo = objOpenSTAAD.Geometry.GetNoOfSelectedBeams
+
+'Populate Selbeams array using API command
+objOpenSTAAD.Geometry.GetSelectedBeams(Selbeams, 1)
+
+'Get beam properties using API command                             objOpenSTAAD.Property.GetBeamProperty(Selbeams(i), Width, Depth, Ax, Ay, Az, Ix, Iy, Iz)
+
+'Get beam length using API command
+BeamLen = objOpenSTAAD.Geometry.GetBeamLength(Selbeams(i))
+
+'Get Elasticity using API command                             objOpenSTAAD.Property.GetBeamConstants(Selbeams(i), dElasticity, dPoisson, dDensity, dAlpha, dDamp)
+
+'Get forces at various sections along the beam length       objOpenSTAAD.Output.GetIntermediateMemberForcesAtDistance(CLng(i), k, CLng(j), ForceArray)

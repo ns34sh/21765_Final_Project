@@ -1,0 +1,7 @@
+Along with the "Calculating strain energy.exe" file, the associated files listed below are also needed for the software application to run:
+-> Calculating strain energy.deps.json
+-> Calculating strain energy.dll
+-> Calculating strain energy.pdb
+-> Calculating strain energy.runtimeconfig.json
+
+Since the application is based on visual basic, it requires an installation of .NET 6.0 framework.
